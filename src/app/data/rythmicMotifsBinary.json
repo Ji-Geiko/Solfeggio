@@ -1,138 +1,28 @@
 {
     "rythmicMotifs": [
         {
-            "pattern": "1111",
-            "notes" : [
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1111"
         },
         {
-            "pattern": "1000",
-            "notes" : [
-                {
-                    "duration": 2,
-                    "type": "quarter",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1000"
         },
         {
-            "pattern": "1001",
-            "notes" : [
-                {
-                    "duration": 1.5,
-                    "type": "eighth",
-                    "dot": 1
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1001"
         },
         {
-            "pattern": "1100",
-            "notes" : [
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 1.5,
-                    "type": "eighth",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1100"
         },
         {
-            "pattern": "1011",
-            "notes" : [
-                {
-                    "duration": 1,
-                    "type": "eighth",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1011"
         },
         {
-            "pattern": "1101",
-            "notes" : [
-                {
-                    "duration": 1,
-                    "type": "eighth",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1101"
         },
         {
-            "pattern": "1100",
-            "notes" : [
-                {
-                    "duration": 0.5,
-                    "type": "16th",
-                    "dot": 0
-                },                {
-                    "duration": 1.5,
-                    "type": "eighth",
-                    "dot": 1
-                }
-            ]
+            "pattern": "1100"
         },
         {
-            "pattern": "1010",
-            "notes" : [
-                {
-                    "duration": 1,
-                    "type": "eighth",
-                    "dot": 0
-                },
-                {
-                    "duration": 1,
-                    "type": "eighth",
-                    "dot": 0
-                }
-            ]
+            "pattern": "1010"
         }
     ]
 }

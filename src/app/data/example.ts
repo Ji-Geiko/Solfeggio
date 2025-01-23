@@ -1,37 +1,76 @@
-const mxl = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+export const mxl = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE score-partwise PUBLIC
     "-//Recordare//DTD MusicXML 4.0 Partwise//EN"
     "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="4.0">
   <part-list>
     <score-part id="P1">
-      <part-name>Music</part-name>
+      <part-name>Rythme</part-name>
     </score-part>
   </part-list>
   <part id="P1">
     <measure number="1">
       <attributes>
-        <divisions>1</divisions>
-        <key>
-          <fifths>0</fifths>
-        </key>
+        <divisions>8</divisions>
         <time>
           <beats>4</beats>
           <beat-type>4</beat-type>
         </time>
         <clef>
-          <sign>G</sign>
-          <line>2</line>
+          <sign>percussion</sign>
         </clef>
       </attributes>
       <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>4</duration>
-        <type>whole</type>
+        <unpitched>
+          <display-step>B</display-step>
+          <display-octave>4</display-octave>
+        </unpitched>
+        <duration>10</duration>
+        <type>eighth</type>
+        <beam number="1">begin</beam>
+      </note>
+
+      <note>
+        <unpitched>
+          <display-step>B</display-step>
+          <display-octave>4</display-octave>
+        </unpitched>
+        <duration>1</duration>
+        <type>16th</type>
+        <beam number="1">continue</beam>
+      </note>
+
+      <note>
+        <unpitched>
+          <display-step>B</display-step>
+          <display-octave>4</display-octave>
+        </unpitched>
+        <duration>1</duration>
+        <type>16th</type>
+        <beam number="1">continue</beam>
+      </note>
+
+      <note>
+        <unpitched>
+          <display-step>B</display-step>
+          <display-octave>4</display-octave>
+        </unpitched>
+        <duration>10</duration>
+        <type>eighth</type>
+        <beam number="1">begin</beam>
+      </note>
+
+      <note>
+        <unpitched>
+          <display-step>B</display-step>
+          <display-octave>4</display-octave>
+        </unpitched>
+        <duration>10</duration>
+        <type>eighth</type>
+        <beam number="1">end</beam>
       </note>
     </measure>
   </part>
 </score-partwise>`
+
+
