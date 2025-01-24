@@ -64,7 +64,7 @@ export const xmlTranslator = ({ data }: XmlTranslatorProps): string => {
   listOfPaterns.forEach((patern) => {
     if (beat === 4) {
       xml += "</measure><measure>"
-      beat = 0;
+      beat = 1;
     } else {
       beat++;
     }
