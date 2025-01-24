@@ -9,18 +9,22 @@ interface SheetRendererProps {
 }
 
 const SheetRenderer = ({ data }: SheetRendererProps): ReactElement => {
+
+  const randomBinary = Array.from({ length: 32 }, () => Math.floor(Math.random() * 2)).join('');
+
   useEffect(() => {
     const osmd = new OpenSheetMusicDisplay("renderer", {
       autoResize: true,
       backend: "canvas",
     });
-    osmd.load(xmlTranslator("1101")).then(() => {
+    osmd.load(xmlTranslator({data: randomBinary})).then(() => {
       osmd.render();
     });
   }, [data]);
 
-  console.log(xmlTranslator("1101"))
-  return <div id="renderer"> awdawd</div>
+  console.log(xmlTranslator({data: randomBinary}))
+
+  return <div id="renderer" />
 }
 
 export default SheetRenderer;

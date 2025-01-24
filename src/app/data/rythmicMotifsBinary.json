@@ -1,7 +1,30 @@
 {
     "rythmicMotifs": [
         {
-            "pattern": "1111"
+            "pattern": "0000",
+            "xml": "<note><rest/><duration>4</duration></note>"
+        },
+        {
+            "pattern": "0001"
+        },
+        {
+            "pattern": "0010"
+        }
+        ,
+        {
+            "pattern": "0011"
+        },
+        {
+            "pattern": "0100"
+        },
+        {
+            "pattern": "0101"
+        },
+        {
+            "pattern": "0110"
+        },
+        {
+            "pattern": "0111"
         },
         {
             "pattern": "1000"
@@ -10,19 +33,22 @@
             "pattern": "1001"
         },
         {
-            "pattern": "1100"
+            "pattern": "1010"
         },
         {
             "pattern": "1011"
         },
         {
-            "pattern": "1101"
-        },
-        {
             "pattern": "1100"
         },
         {
-            "pattern": "1010"
+            "pattern": "1101"
+        },
+        {
+            "pattern": "1110"
+        },
+        {
+            "pattern": "1111"
         }
     ]
 }

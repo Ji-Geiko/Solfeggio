@@ -1,1 +1,1 @@
-export const SelectNotesInPatern = /(10*)/g
+export const SelectNotesInPatern = /([1,0]0*)/g

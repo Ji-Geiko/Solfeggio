@@ -1,61 +1,77 @@
 import { SelectNotesInPatern } from "./Regex";
+import { xmlBase, xmlRythmeNote } from "./xmlRessource";
 
+const decypherPatern = (patern: string): string => {
 
-export const xmlTranslator = (data: string): string => {
-  let xml = `
-      <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <!DOCTYPE score-partwise PUBLIC
-      "-//Recordare//DTD MusicXML 4.0 Partwise//EN"
-      "http://www.musicxml.org/dtds/partwise.dtd">
-  
-      <score-partwise version="4.0">
-        <part-list>
-          <score-part id="P1">
-            <part-name>Rythme</part-name>
-          </score-part>
-          </part-list>
-            <part id="P1">
-              <measure number="1">
-                <attributes>
-                  <divisions>8</divisions>
-                  <time>
-                    <beats>4</beats>
-                    <beat-type>4</beat-type>
-                  </time>
-                  <clef>
-                    <sign>percussion</sign>
-                  </clef>
-                </attributes>`
+  let noteXML = "";
 
-  const notes = data.match(SelectNotesInPatern);
+  const notes = patern.match(SelectNotesInPatern);
+
+  let wasPreviousRest = false;
 
   notes.forEach((note, idx) => {
-    xml += `<note>
-              <unpitched>
-                <display-step>B</display-step>
-                <display-octave>4</display-octave>
-              </unpitched>
-              <duration>1</duration>`
+    const isRest = note[0] === '0';
+
+    noteXML += `<note>${isRest ? `<rest/>` : xmlRythmeNote}`;
+
+
     if (note.length === 1) {
-      xml +="<type>16th</type>"
+      noteXML +="<type>16th</type><duration>1</duration>"
     } else if (note.length === 2) {
-      xml +="<type>eighth</type>"
+      noteXML +="<type>eighth</type><duration>2</duration>"
 
     } else if (note.length === 3) {
-      xml +="<type>eighth</type> <dot />"
+      noteXML +="<type>eighth</type> <dot /><duration>4</duration>"
     } else {
-      xml +="<type>quarter</type>"
+      noteXML +="<type>quarter</type><duration>8</duration>"
     }
 
-    xml += `<beam number="1">${idx === 0 ? 'begin' : idx === notes.length - 1 ? 'end' : 'continue'}</beam>
-            </note>`
+    if (!isRest) {
+      // Appliquer "begin" si c'est la première note après un silence
+      if (wasPreviousRest && idx !== notes.length - 1 || idx === 0) {
+        noteXML += `<beam number="1">begin</beam>`;
+      } else if (idx === notes.length - 1) {
+        noteXML += `<beam number="1">end</beam>`;
+      } else {
+        noteXML += `<beam number="1">continue</beam>`;
+      }
+    }
+
+    wasPreviousRest = isRest;
+    
+    noteXML += "</note>"
   });
 
+  return noteXML;
+}
+
+const splitBinary = (binary: string) => {
+  const groups = binary.match(/.{1,4}/g) || [];
+  return groups;
+}
+
+interface XmlTranslatorProps {
+  data: string;
+}
+
+export const xmlTranslator = ({ data }: XmlTranslatorProps): string => {
+  let xml = xmlBase
+
+  let beat = 0;
+
+  let listOfPaterns = splitBinary(data);
+
+  listOfPaterns.forEach((patern) => {
+    if (beat === 4) {
+      xml += "</measure><measure>"
+      beat = 0;
+    } else {
+      beat++;
+    }
+    xml += decypherPatern(patern);
+  })
 
 
-  xml += `    
-          </measure>
-        </part>
-      </score-partwise>`
+  xml += `</measure></part></score-partwise>`
   return xml;
 }
