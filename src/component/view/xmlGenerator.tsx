@@ -45,24 +45,30 @@ const decypherPatern = (patern: string): string => {
   return noteXML;
 }
 
-const splitBinary = (binary: string) => {
+const splitBinary = (binary: string, isCompound: boolean) => {
+  if (isCompound) {
+    const groups = binary.match(/.{1,6}/g) || [];
+    return groups
+  }
   const groups = binary.match(/.{1,4}/g) || [];
   return groups;
 }
 
 interface XmlTranslatorProps {
-  data: string;
+  data: string,
+  nbOfBeats: number,
+  isCompound: boolean
 }
 
-export const xmlTranslator = ({ data }: XmlTranslatorProps): string => {
-  let xml = xmlBase
+export const xmlTranslator = ({ data, nbOfBeats, isCompound }: XmlTranslatorProps): string => {
+  let xml = xmlBase(nbOfBeats, isCompound, data);
 
   let beat = 0;
 
-  let listOfPaterns = splitBinary(data);
+  let listOfPaterns = splitBinary(data, isCompound);
 
   listOfPaterns.forEach((patern) => {
-    if (beat === 4) {
+    if (beat === nbOfBeats) {
       xml += "</measure><measure>"
       beat = 1;
     } else {
