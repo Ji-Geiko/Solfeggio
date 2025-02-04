@@ -39,7 +39,7 @@ const decypherPatern = (patern: string): string => {
 
     wasPreviousRest = isRest;
     
-    noteXML += "</note>"
+    noteXML += '</note>'
   });
 
   return noteXML;
@@ -69,7 +69,7 @@ export const xmlTranslator = ({ data, nbOfBeats, isCompound }: XmlTranslatorProp
 
   listOfPaterns.forEach((patern) => {
     if (beat === nbOfBeats) {
-      xml += "</measure><measure>"
+      xml += '</measure><measure>'
       beat = 1;
     } else {
       beat++;
