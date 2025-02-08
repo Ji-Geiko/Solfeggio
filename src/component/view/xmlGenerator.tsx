@@ -61,11 +61,11 @@ interface XmlTranslatorProps {
 }
 
 export const xmlTranslator = ({ data, nbOfBeats, isCompound }: XmlTranslatorProps): string => {
-  let xml = xmlBase(nbOfBeats, isCompound, data);
+  let xml = xmlBase(nbOfBeats, isCompound);
 
   let beat = 0;
 
-  let listOfPaterns = splitBinary(data, isCompound);
+  const listOfPaterns = splitBinary(data, isCompound);
 
   listOfPaterns.forEach((patern) => {
     if (beat === nbOfBeats) {
