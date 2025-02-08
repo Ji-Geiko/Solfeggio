@@ -3,10 +3,12 @@
 import { useState } from "react";
 import { DifficultySelector } from "../component/home/difficultySelector";
 import { SheetLauncher } from "../component/home/sheetLauncher";
+import { CompoundSelector } from "../component/home/compoundSelector";
 
 export default function Home() {
 
   const [difficulty, setDifficulty] = useState('1');
+  const [compound, setCompound] = useState(false);
 
   return (
     <div>
@@ -15,8 +17,9 @@ export default function Home() {
       <p>Please select difficulty for your rythme</p>
 
       <DifficultySelector onSave={(data) => setDifficulty(data)}/>
+      <CompoundSelector onSave={(data) => setCompound(data)}/>
 
-      <SheetLauncher difficulty={difficulty}/>
+      <SheetLauncher difficulty={difficulty} isCompound={compound}/>
     </div>
   );
 }
