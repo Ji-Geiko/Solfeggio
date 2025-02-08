@@ -9,7 +9,7 @@ const decypherPatern = (patern: string): string => {
 
   let wasPreviousRest = false;
 
-  notes.forEach((note, idx) => {
+  notes?.forEach((note, idx) => {
     const isRest = note[0] === '0';
 
     noteXML += `<note>${isRest ? `<rest/>` : xmlRythmeNote}`;
