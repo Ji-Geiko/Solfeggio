@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { DifficultySelector } from "../component/home/difficultySelector";
+import { SheetLauncher } from "../component/home/sheetLauncher";
 
 export default function Home() {
 
   const [difficulty, setDifficulty] = useState('1');
-
-  
 
   return (
     <div>
@@ -17,7 +16,7 @@ export default function Home() {
 
       <DifficultySelector onSave={(data) => setDifficulty(data)}/>
 
-      <button onClick={() => console.log(difficulty)}>generate your seed</button>
+      <SheetLauncher difficulty={difficulty}/>
     </div>
   );
 }
