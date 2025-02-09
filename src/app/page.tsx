@@ -1,17 +1,29 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DifficultySelector } from "../component/home/difficultySelector";
 import { SheetLauncher } from "../component/home/sheetLauncher";
 import { CompoundSelector } from "../component/home/compoundSelector";
+import './page.css'; // Import the CSS file
 
 export default function Home() {
 
   const [difficulty, setDifficulty] = useState('1');
   const [compound, setCompound] = useState(false);
+  
+  const [isMounted, setIsMounted] = useState(false);
+
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null; // Render nothing on the server
+  }
 
   return (
-    <div>
+    <div className="container">
       <h1>HELLO</h1>
       <h2>Welcome to Solfeggio</h2>
       <p>Please select difficulty for your rythme</p>
