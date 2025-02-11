@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>HELLO</h1>
+      <h1>🎶HELLO🎶</h1>
       <h2>Welcome to Solfeggio</h2>
-      <p>Please select difficulty for your rythme</p>
+      <p>Please select the difficulty of your rythme</p>
 
       <DifficultySelector onSave={(data) => setDifficulty(data)}/>
       <CompoundSelector onSave={(data) => setCompound(data)}/>

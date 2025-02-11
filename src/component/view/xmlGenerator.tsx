@@ -15,15 +15,23 @@ const decypherPatern = (patern: string): string => {
     noteXML += `<note>${isRest ? `<rest/>` : xmlRythmeNote}`;
 
 
+    console.log(note, note.length)
+
     if (note.length === 1) {
       noteXML +="<type>16th</type><duration>1</duration>"
     } else if (note.length === 2) {
       noteXML +="<type>eighth</type><duration>2</duration>"
-
     } else if (note.length === 3) {
-      noteXML +="<type>eighth</type> <dot /><duration>4</duration>"
+      noteXML +="<type>eighth</type> <dot /><duration>3</duration>"
+    } else if (note.length === 4){
+      noteXML +="<type>quarter</type><duration>4</duration>"
+    } else if (note.length === 5){
+      noteXML +='<type>quarter</type> <tie type="start"/><duration>5</duration><notations><tied type="start"/></notations></note>'
+
+      noteXML += `<note>${xmlRythmeNote}<type>16th</type> <tie type="stop"/><duration>5</duration><notations><tied type="stop"/></notations>`
+
     } else {
-      noteXML +="<type>quarter</type><duration>8</duration>"
+      noteXML +="<type>quarter</type> <dot /> <duration>6</duration>"
     }
 
     if (!isRest) {

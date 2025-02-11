@@ -20,7 +20,7 @@ const CompoundPatternMap: { [key: string]: string[] } = {
   "3": ["0000000", "100000", "101010", "111111", "100010", "101000"],
   "4": ["0000000", "100000", "101010", "111111", "100010", "101000", "101110", "111000"],
   "5": ["0000000", "100000", "101010", "111111", "100010", "101000", "101110", "111000", "100110", "100111", "101111", "111011"],
-  "6": ["0000", "1000", "1010", "1111", "1100", "1001", "1101", "1011", "1110", "0010", "0011", "0001", "0100", "0101", "0110", "0111"]
+  "6": ["0000000", "100000", "101010", "111111", "100010", "101000", "101110", "111000", "100110", "100111", "101111", "111011"]
 }
 
 export const SheetLauncher = ({ difficulty, isCompound }: SheetLauncherProps): ReactElement => {
@@ -31,25 +31,27 @@ export const SheetLauncher = ({ difficulty, isCompound }: SheetLauncherProps): R
     if (!isCompound) {
       const patterns = BinaryPatternMap[difficulty] || ["0000", "1000", "1010"];
 
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 8; i++) {
         bin += patterns[Math.floor(Math.random() * patterns.length)];
       }
     } else {
       const patterns = CompoundPatternMap[difficulty] || ["0000000", "100000", "101010"];
 
-      for (let i = 0; i < 9; i++) {
+      for (let i = 0; i < 8; i++) {
         bin += patterns[Math.floor(Math.random() * patterns.length)];
       }
     }
 
+
     const hex = parseInt(bin, 2).toString(16);
+    console.log(hex)
 
     return hex;
   }
 
   return (
     <div >
-      <a href={`/view/${seedBuilder(difficulty, isCompound)}`}>
+      <a href={`/view/${seedBuilder(difficulty, isCompound)}+${isCompound ? '1' : '0'}`}>
         <button>
           Launch Sheet
         </button>
